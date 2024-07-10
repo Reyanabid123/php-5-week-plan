@@ -1,324 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PHP Tutorial Schedule</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-   *{
-  margin: 0%;
-  padding: 0%;
-  box-sizing: border-box;
-  font-family: 'Glory', sans-serif;
-  text-decoration: none;
-  user-select: none;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHP Tutorial Schedule</title>
 
-html,body{
-  height: 100%;
-  width: 100%;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  background-color: #f0f0f0;
-}
+    <style>
+      * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+        font-family: "Glory", sans-serif;
+        text-decoration: none;
+        user-select: none;
+      }
 
-body {
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background-color: #f0f0f0;
+      }
 
-  background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+      body {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
 
-}
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        animation: fadeIn 1s ease-in-out;
+        transform: perspective(1000px) rotateY(0deg);
+        padding: 20px;
+        border-radius: 20px;
+      }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  animation: fadeIn 1s ease-in-out;
-  transform: perspective(1000px) rotateY(0deg);
-  padding: 20px;
-  border-radius: 20px;
-}
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        overflow: hidden;
+      }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 10px;
-  overflow: hidden;
-}
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition-duration: 2s;
+      }
 
-th, td {
-  padding: 12px;
-  text-align: left;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
- transition-duration: 2s;
-}
+      th {
+        font-weight: bold;
+        cursor: pointer;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
 
-th {
-  font-weight: bold;
-  cursor: pointer;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
+      th:hover,
+      td:hover {
+        transform: scale(1.05);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
 
-th:hover, td:hover {
-  transform: scale(1.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
+      tr:nth-child(even) {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
 
-tr:nth-child(even) {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
+      tr:hover {
+        transform: translateY(-3px);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
 
-tr:hover {
-  transform: translateY(-3px);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
+      .softmerge-inner {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
 
-.softmerge-inner {
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
+      .s2 a {
+        color: #1155cc;
+        text-decoration: none;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
 
-.s2 a {
-  color: #1155cc;
-  text-decoration: none;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
+      .s2 a:hover {
+        text-decoration: underline;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
 
-.s2 a:hover {
-  text-decoration: underline;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
+      @media screen and (max-width: 600px) {
+        table {
+          width: 100%;
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+        }
+        th,
+        td {
+          padding: 8px;
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+        }
+      }
+    </style>
+  </head>
+  <body
+    style="
+      background: url(https://cdn.pixabay.com/photo/2017/02/12/16/38/php-2060502_1280.jpg);
+    "
+  >
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th style="width: 100px">Week</th>
+            <th style="width: 150px">Topic</th>
+            <th>Video Resources (YouTube)</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>Week 1</td>
+            <td>Introduction to PHP</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://www.youtube.com/watch?v=OxkPmOuxMyw"
+                  target="_blank"
+                  >PHP Tutorial for Beginners - Learn PHP in 7 Hours</a
+                ><br />
+                <a
+                  href="https://www.youtube.com/watch?v=xLc70TTz88Q"
+                  target="_blank"
+                  >Crash Course PHP Tutorial - Learn PHP in 1 Hour</a
+                >
+              </div>
+            </td>
+            <td>
+              Learn the basics of PHP, including its history, syntax, and
+              structure of a PHP script.
+            </td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td></td>
+            <td>Variables & Data Types</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://m.youtube.com/watch?v=OxkPmOuxMyw"
+                  target="_blank"
+                  >PHP Data Types Explained Simply (Integers, Floats, Strings,
+                  Booleans, Arrays)</a
+                >
+              </div>
+            </td>
+            <td>Understand PHP variables, data types, and their usage.</td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td></td>
+            <td>Operators</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://m.youtube.com/watch?v=xLc70TTz88Q"
+                  target="_blank"
+                  >PHP Operators Tutorial - Explained for Beginners</a
+                >
+              </div>
+            </td>
+            <td>
+              Learn about operators in PHP, including arithmetic, comparison,
+              and logical operators.
+            </td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td>Week 2</td>
+            <td>Control Flow Statements</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://www.youtube.com/watch?v=e2PK0BSmg3A"
+                  target="_blank"
+                  >PHP Control Flow Statements Tutorial (if, else, switch, for,
+                  while, foreach)</a
+                >
+              </div>
+            </td>
+            <td>
+              Understand how to control the flow of PHP scripts using
+              conditional statements and loops.
+            </td>
+          </tr>
+          <tr>
+            <th>5</th>
+            <td></td>
+            <td>Functions</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://www.youtube.com/watch?v=HvxQww-7NGA"
+                  target="_blank"
+                  >PHP Functions Tutorial for Beginners - Creating Reusable
+                  Code</a
+                >
+              </div>
+            </td>
+            <td>
+              Learn how to define and use functions in PHP for code reusability
+              and organization.
+            </td>
+          </tr>
+          <tr>
+            <th>6</th>
+            <td></td>
+            <td>Practice</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://www.youtube.com/watch?v=OK_JCtrrv-c"
+                  target="_blank"
+                  >PHP Exercises for Beginners</a
+                >
+              </div>
+            </td>
+            <td>
+              Practice PHP programming with exercises to reinforce learning.
+            </td>
+          </tr>
+          <tr>
+            <th>7</th>
+            <td>Week 3</td>
+            <td>Forms</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://m.youtube.com/watch?v=cQIVmuqVxf4"
+                  target="_blank"
+                  >PHP Forms Tutorial - Processing Form Data (GET & POST
+                  Methods)</a
+                >
+              </div>
+            </td>
+            <td>
+              Learn how to handle HTML forms using PHP, including form
+              validation and data processing.
+            </td>
+          </tr>
+          <tr>
+            <th>8</th>
+            <td></td>
+            <td>Superglobals</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://m.youtube.com/watch?v=MujfofukfwQ"
+                  target="_blank"
+                  >PHP Superglobals Explained ($_GET, $_POST, $_SERVER)</a
+                >
+              </div>
+            </td>
+            <td>
+              Understand PHP superglobal variables and their role in web
+              applications.
+            </td>
+          </tr>
+          <tr>
+            <th>9</th>
+            <td></td>
+            <td>Dates & Times</td>
+            <td>
+              <div class="softmerge-inner">
+                Working with Dates and Times in PHP
+              </div>
+            </td>
+            <td>Explore how to work with date and time functions in PHP.</td>
+          </tr>
+          <tr>
+            <th>10</th>
+            <td>Week 4</td>
+            <td>String Manipulation</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://www.youtube.com/watch?v=2TXxgwmcm8k"
+                  target="_blank"
+                  >PHP String Manipulation Functions Tutorial (strlen, strpos,
+                  explode, etc.)</a
+                >
+              </div>
+            </td>
+            <td>
+              Learn about PHP string manipulation functions and their
+              applications.
+            </td>
+          </tr>
+          <tr>
+            <th>11</th>
+            <td></td>
+            <td>File Handling</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://www.youtube.com/watch?v=4gkIojIHcWI"
+                  target="_blank"
+                  >PHP File Handling Tutorial - Reading, Writing, and Uploading
+                  Files</a
+                >
+              </div>
+            </td>
+            <td>
+              Understand how to work with files in PHP, including reading,
+              writing, and uploading.
+            </td>
+          </tr>
+          <tr>
+            <th>12</th>
+            <td></td>
+            <td>Error Handling</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://www.youtube.com/watch?v=rQntgj7yink"
+                  target="_blank"
+                  >PHP Error Handling Tutorial (try/catch blocks)</a
+                >
+              </div>
+            </td>
+            <td>
+              Learn how to handle errors and exceptions in PHP applications.
+            </td>
+          </tr>
+          <tr>
+            <th>13</th>
+            <td>Week 5 (Optional)</td>
+            <td>OOP Concepts</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://www.youtube.com/watch?v=yrFr5PMdk2A"
+                  target="_blank"
+                  >Object Oriented Programming (OOP) in PHP Tutorial for
+                  Beginners</a
+                >
+              </div>
+            </td>
+            <td>
+              Introduction to object-oriented programming (OOP) concepts in PHP.
+            </td>
+          </tr>
+          <tr>
+            <th>14</th>
+            <td></td>
+            <td>Databases</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://m.youtube.com/shorts/iU
 
-@media screen and (max-width: 600px) {
-  table {
-    width: 100%;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  th, td {
-    padding: 8px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-}
-
-</style>
-</head>
-<body style="background: url(https://cdn.pixabay.com/photo/2017/02/12/16/38/php-2060502_1280.jpg);">
-
-<div class="container">
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th style="width: 100px;">Week</th>
-        <th style="width: 150px;">Topic</th>
-        <th>Video Resources (YouTube)</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>1</th>
-        <td>Week 1</td>
-        <td>Introduction to PHP</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://www.youtube.com/watch?v=OxkPmOuxMyw" target="_blank">PHP Tutorial for Beginners - Learn PHP in 7 Hours</a><br>
-            <a href="https://www.youtube.com/watch?v=xLc70TTz88Q" target="_blank">Crash Course PHP Tutorial - Learn PHP in 1 Hour</a>
-          </div>
-        </td>
-        <td>Learn the basics of PHP, including its history, syntax, and structure of a PHP script.</td>
-      </tr>
-      <tr>
-        <th>2</th>
-        <td></td>
-        <td>Variables & Data Types</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://m.youtube.com/watch?v=OxkPmOuxMyw" target="_blank">PHP Data Types Explained Simply (Integers, Floats, Strings, Booleans, Arrays)</a>
-          </div>
-        </td>
-        <td>Understand PHP variables, data types, and their usage.</td>
-      </tr>
-      <tr>
-        <th>3</th>
-        <td></td>
-        <td>Operators</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://m.youtube.com/watch?v=xLc70TTz88Q" target="_blank">PHP Operators Tutorial - Explained for Beginners</a>
-          </div>
-        </td>
-        <td>Learn about operators in PHP, including arithmetic, comparison, and logical operators.</td>
-      </tr>
-      <tr>
-        <th>4</th>
-        <td>Week 2</td>
-        <td>Control Flow Statements</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://www.youtube.com/watch?v=e2PK0BSmg3A" target="_blank">PHP Control Flow Statements Tutorial (if, else, switch, for, while, foreach)</a>
-          </div>
-        </td>
-        <td>Understand how to control the flow of PHP scripts using conditional statements and loops.</td>
-      </tr>
-      <tr>
-        <th>5</th>
-        <td></td>
-        <td>Functions</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://www.youtube.com/watch?v=HvxQww-7NGA" target="_blank">PHP Functions Tutorial for Beginners - Creating Reusable Code</a>
-          </div>
-        </td>
-        <td>Learn how to define and use functions in PHP for code reusability and organization.</td>
-      </tr>
-      <tr>
-        <th>6</th>
-        <td></td>
-        <td>Practice</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://www.youtube.com/watch?v=OK_JCtrrv-c" target="_blank">PHP Exercises for Beginners</a>
-          </div>
-        </td>
-        <td>Practice PHP programming with exercises to reinforce learning.</td>
-      </tr>
-      <tr>
-        <th>7</th>
-        <td>Week 3</td>
-        <td>Forms</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://m.youtube.com/watch?v=cQIVmuqVxf4" target="_blank">PHP Forms Tutorial - Processing Form Data (GET & POST Methods)</a>
-          </div>
-        </td>
-        <td>Learn how to handle HTML forms using PHP, including form validation and data processing.</td>
-      </tr>
-      <tr>
-        <th>8</th>
-        <td></td>
-        <td>Superglobals</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://m.youtube.com/watch?v=MujfofukfwQ" target="_blank">PHP Superglobals Explained ($_GET, $_POST, $_SERVER)</a>
-          </div>
-        </td>
-        <td>Understand PHP superglobal variables and their role in web applications.</td>
-      </tr>
-      <tr>
-        <th>9</th>
-        <td></td>
-        <td>Dates & Times</td>
-        <td>
-          <div class="softmerge-inner">
-            Working with Dates and Times in PHP
-          </div>
-        </td>
-        <td>Explore how to work with date and time functions in PHP.</td>
-      </tr>
-      <tr>
-        <th>10</th>
-        <td>Week 4</td>
-        <td>String Manipulation</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://www.youtube.com/watch?v=2TXxgwmcm8k" target="_blank">PHP String Manipulation Functions Tutorial (strlen, strpos, explode, etc.)</a>
-          </div>
-        </td>
-        <td>Learn about PHP string manipulation functions and their applications.</td>
-      </tr>
-      <tr>
-        <th>11</th>
-        <td></td>
-        <td>File Handling</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://www.youtube.com/watch?v=4gkIojIHcWI" target="_blank">PHP File Handling Tutorial - Reading, Writing, and Uploading Files</a>
-          </div>
-        </td>
-        <td>Understand how to work with files in PHP, including reading, writing, and uploading.</td>
-      </tr>
-      <tr>
-        <th>12</th>
-        <td></td>
-        <td>Error Handling</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://www.youtube.com/watch?v=rQntgj7yink" target="_blank">PHP Error Handling Tutorial (try/catch blocks)</a>
-          </div>
-        </td>
-        <td>Learn how to handle errors and exceptions in PHP applications.</td>
-      </tr>
-      <tr>
-        <th>13</th>
-        <td>Week 5 (Optional)</td>
-        <td>OOP Concepts</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://www.youtube.com/watch?v=yrFr5PMdk2A" target="_blank">Object Oriented Programming (OOP) in PHP Tutorial for Beginners</a>
-          </div>
-        </td>
-        <td>Introduction to object-oriented programming (OOP) concepts in PHP.</td>
-      </tr>
-      <tr>
-        <th>14</th>
-        <td></td>
-        <td>Databases</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://m.youtube.com/shorts/iU
-
-ZEtGtqr-c" target="_blank">PHP MySQL Database Connection and Query Tutorial</a>
-          </div>
-        </td>
-        <td>Learn how to connect and interact with MySQL databases using PHP.</td>
-      </tr>
-      <tr>
-        <th>15</th>
-        <td></td>
-        <td>Sessions & Cookies</td>
-        <td>
-          <div class="softmerge-inner">
-            <a href="https://m.youtube.com/watch?v=rNgPjJK7DQE" target="_blank">PHP Sessions and Cookies Tutorial</a>
-          </div>
-        </td>
-        <td>Understand how to manage sessions and cookies in PHP applications.</td>
-      </tr>
-      <tr>
-        <th>16</th>
-        <td></td>
-        <td>Final Project</td>
-        <td>
-          <div class="softmerge-inner">
-            Implementing a PHP Web Application
-          </div>
-        </td>
-        <td>Work on a final project to apply PHP concepts learned throughout the course.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-</body>
+ZEtGtqr-c"
+                  target="_blank"
+                  >PHP MySQL Database Connection and Query Tutorial</a
+                >
+              </div>
+            </td>
+            <td>
+              Learn how to connect and interact with MySQL databases using PHP.
+            </td>
+          </tr>
+          <tr>
+            <th>15</th>
+            <td></td>
+            <td>Sessions & Cookies</td>
+            <td>
+              <div class="softmerge-inner">
+                <a
+                  href="https://m.youtube.com/watch?v=rNgPjJK7DQE"
+                  target="_blank"
+                  >PHP Sessions and Cookies Tutorial</a
+                >
+              </div>
+            </td>
+            <td>
+              Understand how to manage sessions and cookies in PHP applications.
+            </td>
+          </tr>
+          <tr>
+            <th>16</th>
+            <td></td>
+            <td>Final Project</td>
+            <td>
+              <div class="softmerge-inner">
+                Implementing a PHP Web Application
+              </div>
+            </td>
+            <td>
+              Work on a final project to apply PHP concepts learned throughout
+              the course.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
 </html>
